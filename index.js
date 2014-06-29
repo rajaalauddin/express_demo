@@ -20,6 +20,10 @@ app.get('/potato', function(req, res) {
 	res.send('potato is ' + app.get('title'));
 });
 
+app.get('/:viewname', function(req, res) {
+	res.render(req.params.viewname);
+});
+
 // testing view
 app.get('/empty', function(req, res) {
 	res.render('empty');
