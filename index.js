@@ -6,6 +6,8 @@ var express = require('express'),
 var app = express();
 
 app.set('title', 'Express Demo');
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/views');
 
 app.use(logger());
 //app.use(express.morgan('dev'));
@@ -17,5 +19,10 @@ app.get('/customers/contact', customer.contact);
 app.get('/potato', function(req, res) {
 	res.send('potato is ' + app.get('title'));
 });
+
+// testing view
+app.get('/empty', function(req, res) {
+	res.render('empty');
+})
 
 app.listen(3000);
